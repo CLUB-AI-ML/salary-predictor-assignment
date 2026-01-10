@@ -1,0 +1,23 @@
+Project Goal: Build a Linear Regression model to predict employee salary based on years of experience.
+⚠️ Judging Criteria (Pass Requirements)
+Your model must pass the following 3 tests to be accepted:
+
+
+Test 1: The Accuracy Equivalent (R² Score)
+Since this is a regression task, we do not use "Accuracy %". We use the $R^2$ Score.
+Requirement: Your model must achieve an R^2 Score of 0.90 or higher on the Test Set.
+Why? This proves your line fits the data well.
+
+
+Test 2: The Confusion Matrix Equivalent (Visual Proof)
+Since we predict exact numbers, we cannot use a Confusion Matrix. You must instead generate an Actual vs. Predicted Plot.
+Requirement: Save a plot where:
+X-Axis: Actual Salaries (Test Data)
+Y-Axis: Predicted Salaries
+Visual Check: The dots must lie close to the diagonal red line.
+Why? This visually proves your model isn't making wild guesses.
+
+
+Test 3: The Error Limit (RMSE)
+Requirement: Your Root Mean Squared Error (RMSE) must be below 7000.
+Why? This ensures your predictions are, on average, within $7k of the real salary.

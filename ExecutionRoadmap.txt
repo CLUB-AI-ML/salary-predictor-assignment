@@ -1,0 +1,24 @@
+Execution Plan (Step-by-Step)
+This roadmap guides you from setup all the way to passing the automated judging tests.
+Phase 1: Setup & Data Preparation
+Repository: Create a new GitHub repository named salary-predictor.
+Environment: Set up a local Python environment (using virtualenv or Conda).
+Data: Create a file named salary_data.csv inside a dataset/ folder and paste the provided 100-row dataset into it.
+Phase 2: Exploration & Analysis
+Load: Import pandas and read the CSV file.
+Visualize: Create a scatter plot (Experience on X-axis vs. Salary on Y-axis) to visually confirm that the data forms a roughly straight line (linear relationship).
+Phase 3: Building the Model
+Split: Divide the data into a Training Set (80%) and a Test Set (20%) using train_test_split.
+Train: Import LinearRegression from Scikit-Learn and fit the model on the Training Set only.
+Phase 4: Internal Evaluation (The "Self-Check")
+Predict: Use the model to predict salaries for the Test Set.
+Calculate Metrics: instead of "Accuracy," calculate:
+RMSE (Root Mean Squared Error): Must be below 7000.
+R^2 Score: Must be 0.90 or higher.
+Visualize Results: Plot the "Best Fit Line" over the data points to see how well the model learned.
+Phase 5: Validation & Submission (Crucial Step)
+Run the Judging Block: Add the specific "Validation Code" provided at the end of the notebook.
+Generate Proof: Ensure the code successfully passes the thresholds and generates the submission/ folder containing:
+model_performance.txt (The score report).
+actual_vs_pred.png (The visual proof plot).
+Push to GitHub: Commit all files (including the submission/ folder) and push them to the repository for review.
