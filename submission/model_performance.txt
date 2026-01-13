@@ -1,0 +1,5 @@
+Model Performance Metrics
+--------------------------
+RMSE: 6498.47
+R^2 Score: 0.9601
+Status: PASSED
