@@ -1,0 +1,4 @@
+Model Performance Metrics
+-------------------------
+Mean Squred Error (MSE): 42230108.43
+R2 Score: 0.9601
