@@ -1,5 +1,3 @@
-pip install -r requirements.txt     #read all packages listed in this file and install them.
-
 
 numpy 
 pandas 
