@@ -1,0 +1,29 @@
+==================================================
+MODEL PERFORMANCE METRICS
+==================================================
+
+R² Score: 0.960132
+RMSE: 6498.47
+
+--------------------------------------------------
+REQUIREMENT CHECKS
+--------------------------------------------------
+
+Test 1 - R² Score >= 0.90: PASS
+  Current R² Score: 0.960132
+  Required: >= 0.90
+
+Test 2 - Actual vs Predicted Plot: PASS
+  Plot saved as: actual_vs_pred.png
+
+Test 3 - RMSE < 7000: PASS
+  Current RMSE: 6498.47
+  Required: < 7000
+
+==================================================
+MODEL SUMMARY
+==================================================
+
+Model Type: Linear Regression
+Feature: YearsExperience
+Target: Salary($)
