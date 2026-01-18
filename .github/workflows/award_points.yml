@@ -1,0 +1,49 @@
+name: Award Points on Close
+
+on:
+  pull_request:
+    types: [closed]
+
+jobs:
+  award-points:
+    runs-on: ubuntu-latest
+    # Only run if one of the point labels is present
+    if: |
+      contains(github.event.pull_request.labels.*.name, 'points:50') ||
+      contains(github.event.pull_request.labels.*.name, 'points:100') ||
+      contains(github.event.pull_request.labels.*.name, 'points:200')
+    
+    steps:
+      - name: Calculate Points
+        id: calc
+        run: |
+          # Default to 0
+          POINTS=0
+          
+          # Check which label is present
+          if [[ "${{ contains(github.event.pull_request.labels.*.name, 'points:50') }}" == "true" ]]; then
+            POINTS=50
+          fi
+          if [[ "${{ contains(github.event.pull_request.labels.*.name, 'points:100') }}" == "true" ]]; then
+            POINTS=100
+          fi
+          if [[ "${{ contains(github.event.pull_request.labels.*.name, 'points:200') }}" == "true" ]]; then
+            POINTS=200
+          fi
+          
+          echo "Selected Points: $POINTS"
+          echo "points=$POINTS" >> $GITHUB_OUTPUT
+
+      - name: Send to Supabase via Vercel
+        env:
+          USER_LOGIN: ${{ github.event.pull_request.user.login }}
+          POINTS: ${{ steps.calc.outputs.points }} # Uses the calculated value
+          URL: ${{ secrets.BACKEND_URL }} # e.g. https://your-app.vercel.app/api/update-score
+          SECRET: ${{ secrets.API_SECRET }}
+        run: |
+          echo "🚀 Awarding $POINTS points to $USER_LOGIN..."
+          
+          curl -X POST "$URL" \
+               -H "Content-Type: application/json" \
+               -H "x-api-secret: $SECRET" \
+               -d "{\"username\": \"$USER_LOGIN\", \"points\": $POINTS}"
