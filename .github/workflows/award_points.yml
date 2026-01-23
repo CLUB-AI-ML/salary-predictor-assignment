@@ -11,6 +11,7 @@ jobs:
     if: |
       contains(github.event.pull_request.labels.*.name, 'points:50') ||
       contains(github.event.pull_request.labels.*.name, 'points:100') ||
+      contains(github.event.pull_request.labels.*.name, 'points:150') ||
       contains(github.event.pull_request.labels.*.name, 'points:200')
     
     steps:
@@ -26,6 +27,9 @@ jobs:
           fi
           if [[ "${{ contains(github.event.pull_request.labels.*.name, 'points:100') }}" == "true" ]]; then
             POINTS=100
+          fi
+          if [[ "${{ contains(github.event.pull_request.labels.*.name, 'points:150') }}" == "true" ]]; then
+            POINTS=150
           fi
           if [[ "${{ contains(github.event.pull_request.labels.*.name, 'points:200') }}" == "true" ]]; then
             POINTS=200
